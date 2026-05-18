@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website HP Sederhana</title>  <style>
+  <title>My Portfolio</title>  <style>
     *{
       margin:0;
       padding:0;
@@ -11,170 +11,216 @@
     }
 
     body{
-      background: linear-gradient(135deg,#0f0f0f,#1f1f1f);
+      background:#0f0f0f;
       color:white;
-      min-height:100vh;
-      overflow-x:hidden;
+      scroll-behavior:smooth;
     }
 
-    /* ANIMASI BACKGROUND FLOAT */
-    body::before{
-      content:"";
+    /* NAVBAR */
+    nav{
       position:fixed;
-      width:200%;
-      height:200%;
-      background: radial-gradient(circle, rgba(0,191,255,0.15), transparent 40%);
-      animation: moveBg 8s linear infinite;
-      top:-50%;
-      left:-50%;
-      z-index:-1;
+      top:0;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      z-index:1000;
     }
 
-    @keyframes moveBg{
-      0%{transform:translate(0,0) rotate(0deg);}
-      50%{transform:translate(50px,50px) rotate(180deg);}
-      100%{transform:translate(0,0) rotate(360deg);}
+    nav h1{
+      font-size:18px;
+      color:#00bfff;
+    }
+
+    nav a{
+      color:white;
+      margin-left:15px;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      color:#00bfff;
     }
 
     /* HERO */
     .hero{
-      position:relative;
-      width:100%;
-      height:320px;
-      overflow:hidden;
-    }
-
-    .hero img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      animation: zoomIn 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes zoomIn{
-      from{transform:scale(1);}
-      to{transform:scale(1.1);}
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.5);
+      height:100vh;
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
       text-align:center;
+      background:linear-gradient(135deg,#111,#1f1f1f);
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:2.5rem;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero p{
+      margin-top:10px;
+      opacity:0.8;
+    }
+
+    .btn{
+      margin-top:20px;
+      padding:12px 20px;
+      background:#00bfff;
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 15px #00bfff;
+    }
+
+    /* SECTION */
+    section{
+      padding:80px 20px;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      font-size:1.8rem;
+      margin-bottom:20px;
+      color:#00bfff;
+    }
+
+    /* ABOUT */
+    .about{
+      text-align:center;
+      opacity:0.85;
+      line-height:1.6;
+    }
+
+    /* SKILLS */
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+      gap:15px;
+    }
+
+    .skill{
+      background:rgba(255,255,255,0.08);
+      padding:15px;
+      border-radius:10px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      transform:scale(1.05);
+      background:#00bfff22;
+    }
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:15px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      padding:15px;
+      border-radius:10px;
+      transition:0.3s;
+      text-align:center;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px #00bfff55;
+    }
+
+    /* CONTACT */
+    .contact{
+      text-align:center;
+    }
+
+    input,textarea{
+      width:100%;
+      margin-top:10px;
       padding:10px;
-      animation: fadeIn 2s ease;
+      border:none;
+      border-radius:8px;
+    }
+
+    button{
+      margin-top:10px;
+      padding:10px 20px;
+      border:none;
+      background:#00bfff;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      opacity:0.6;
     }
 
     @keyframes fadeIn{
       from{opacity:0; transform:translateY(20px);}
       to{opacity:1; transform:translateY(0);}
     }
-
-    .overlay h1{
-      font-size:2.2rem;
-      animation: slideDown 1.5s ease;
-    }
-
-    .overlay p{
-      margin-top:10px;
-      font-size:1rem;
-      opacity:0.9;
-      animation: slideUp 2s ease;
-    }
-
-    @keyframes slideDown{
-      from{transform:translateY(-20px); opacity:0;}
-      to{transform:translateY(0); opacity:1;}
-    }
-
-    @keyframes slideUp{
-      from{transform:translateY(20px); opacity:0;}
-      to{transform:translateY(0); opacity:1;}
-    }
-
-    /* CONTENT */
-    .content{
-      padding:20px;
-      text-align:center;
-    }
-
-    .card{
-      background:rgba(255,255,255,0.08);
-      padding:20px;
-      border-radius:15px;
-      margin-top:20px;
-      backdrop-filter:blur(10px);
-      animation: popUp 1s ease;
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 20px rgba(0,191,255,0.4);
-    }
-
-    @keyframes popUp{
-      from{opacity:0; transform:scale(0.8);}
-      to{opacity:1; transform:scale(1);}
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:15px;
-      padding:12px 20px;
-      background:linear-gradient(45deg,#00bfff,#0066ff);
-      color:white;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s;
-      animation: glow 2s infinite alternate;
-    }
-
-    .btn:hover{
-      transform:scale(1.1);
-    }
-
-    @keyframes glow{
-      from{box-shadow:0 0 5px #00bfff;}
-      to{box-shadow:0 0 20px #00bfff;}
-    }
-
-    footer{
-      text-align:center;
-      padding:15px;
-      opacity:0.7;
-      margin-top:20px;
-      animation: fadeIn 3s ease;
-    }
   </style></head>
-<body>  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
-    <div class="overlay">
-      <h1>CYBER AI🗿</h1>
-      <p>sundala kongkong</p>
-    </div>
-  </div>  <div class="content"><div class="card">
-  <h2>CYBER AI</h2>
-  <p>cyber ai v0.0.0.1.</p>
-  <a class="btn" href="#">tekan</a>
-</div>
-
-<div class="card">
-  <h3>Fitur</h3>
-  <p>
-    ✔ virus<br>
-    ✔ coding<br>
-    
-    
+<body><nav>
+  <h1>MyPortfolio</h1>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav><section class="hero" id="home">
+  <h2>Halo, Saya Developer 👋</h2>
+  <p>Membuat website modern langsung dari HP</p>
+  <a class="btn" href="#projects">Lihat Project</a>
+</section><section id="about">
+  <h2 class="title">Tentang Saya</h2>
+  <p class="about">
+    Saya adalah developer pemula yang sedang belajar membuat website modern, game sederhana, dan aplikasi berbasis web.
   </p>
-</div>
-
-  </div>  <footer>
-    Dibuat dengan HTML+CSS animasi
-  </footer></body>
+</section><section id="skills">
+  <h2 class="title">Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">Python</div>
+    <div class="skill">JavaScript</div>
+  </div>
+</section><section id="projects">
+  <h2 class="title">Projects</h2>
+  <div class="projects">
+    <div class="card">Website Portfolio</div>
+    <div class="card">Game Python</div>
+    <div class="card">UI Design</div>
+  </div>
+</section><section id="contact">
+  <h2 class="title">Contact</h2>
+  <div class="contact">
+    <input type="text" placeholder="Nama">
+    <textarea rows="4" placeholder="Pesan"></textarea>
+    <button>Kirim</button>
+  </div>
+</section><footer>
+  © 2026 My Portfolio | Dibuat dengan HTML & CSS
+</footer></body>
 </html>
