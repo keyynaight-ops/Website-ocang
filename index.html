@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website HP Sederhana</title>  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#0f0f0f,#1f1f1f);
+      color:white;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* ANIMASI BACKGROUND FLOAT */
+    body::before{
+      content:"";
+      position:fixed;
+      width:200%;
+      height:200%;
+      background: radial-gradient(circle, rgba(0,191,255,0.15), transparent 40%);
+      animation: moveBg 8s linear infinite;
+      top:-50%;
+      left:-50%;
+      z-index:-1;
+    }
+
+    @keyframes moveBg{
+      0%{transform:translate(0,0) rotate(0deg);}
+      50%{transform:translate(50px,50px) rotate(180deg);}
+      100%{transform:translate(0,0) rotate(360deg);}
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      width:100%;
+      height:320px;
+      overflow:hidden;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      animation: zoomIn 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomIn{
+      from{transform:scale(1);}
+      to{transform:scale(1.1);}
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:10px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .overlay h1{
+      font-size:2.2rem;
+      animation: slideDown 1.5s ease;
+    }
+
+    .overlay p{
+      margin-top:10px;
+      font-size:1rem;
+      opacity:0.9;
+      animation: slideUp 2s ease;
+    }
+
+    @keyframes slideDown{
+      from{transform:translateY(-20px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    @keyframes slideUp{
+      from{transform:translateY(20px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    /* CONTENT */
+    .content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      padding:20px;
+      border-radius:15px;
+      margin-top:20px;
+      backdrop-filter:blur(10px);
+      animation: popUp 1s ease;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px rgba(0,191,255,0.4);
+    }
+
+    @keyframes popUp{
+      from{opacity:0; transform:scale(0.8);}
+      to{opacity:1; transform:scale(1);}
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 20px;
+      background:linear-gradient(45deg,#00bfff,#0066ff);
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+      animation: glow 2s infinite alternate;
+    }
+
+    .btn:hover{
+      transform:scale(1.1);
+    }
+
+    @keyframes glow{
+      from{box-shadow:0 0 5px #00bfff;}
+      to{box-shadow:0 0 20px #00bfff;}
+    }
+
+    footer{
+      text-align:center;
+      padding:15px;
+      opacity:0.7;
+      margin-top:20px;
+      animation: fadeIn 3s ease;
+    }
+  </style></head>
+<body>  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+    <div class="overlay">
+      <h1>CYBER AI🗿</h1>
+      <p>sundala kongkong</p>
+    </div>
+  </div>  <div class="content"><div class="card">
+  <h2>CYBER AI</h2>
+  <p>cyber ai v0.0.0.1.</p>
+  <a class="btn" href="#">tekan</a>
+</div>
+
+<div class="card">
+  <h3>Fitur</h3>
+  <p>
+    ✔ virus<br>
+    ✔ coding<br>
+    
+    
+  </p>
+</div>
+
+  </div>  <footer>
+    Dibuat dengan HTML+CSS animasi
+  </footer></body>
+</html>
